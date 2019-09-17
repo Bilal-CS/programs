@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." name="SimpleWebServer">
+    
+    
+    <target name="clean">
+        <delete>
+            <fileset dir="." includes="**/*.class"/>
+        </delete>
+    </target>
+    
+    <target name="compile" description="Compile WebWorker and WebServer">
+	<javac srcdir="." includeantruntime="true" includes="WebWorker.java" destdir="."></javac>
+        <javac srcdir="." includeantruntime="true" includes="WebServer.java" destdir="."></javac>
+    </target>
+    
+	<target name="run" depends="compile" description="Run WebServer">
+       <java classname="WebServer" fork="true">
+	   
+	   </java>
+	</target>
+</project>
