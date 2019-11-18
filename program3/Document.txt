@@ -1,0 +1,64 @@
+Fix 1:
+File Name: IglooScore1.java
+Modification: Modify line 40 & 42.
+
+public int overallScore()
+{
+   int s;
+   if (score1 < score2)
+      s = score1;//Provided Statement: s = score2
+   else
+      s = score2;//Provided Statement: s = score1
+   if (s > score3)
+      s = score3;
+   s = (score1+score2+score3) - s;   
+   return s;
+}
+
+Fix 2:
+File Name: IglooScore2.java
+Modification: Modify line 38 & 51-61 (else statement).
+
+public int overallScore()
+{
+   int s, s1=0, s2=0;//Set default values to 0
+   if (score1 < score2 && score1 < score3) {
+      s1 = score2;
+      s2 = score3;
+   } else if (score2 < score1 && score2 < score3) {
+      s1 = score1;
+      s2 = score3;//Provided Statement: s2 = score2
+   } else if (score3 < score1 && score3 < score2) {
+      s1 = score1;
+      s2 = score2;
+   } /*else {
+      Provided Statement:s1 = 99;
+      Provided Statement:s2 = 99;*/
+     else {
+	if(score1 == score2 && score1 < score3){
+	    s1 = score1;
+	    s2 = score3;
+	} else if(score2 == score3 && score2 < score1){
+	    s1 = score2;
+	    s2 = score1;
+	} else{
+	    s1 = score1;
+	    s2 = score2;
+	}
+	
+  }
+   s = s1 + s2;
+   return s;
+}
+
+Fix 3:
+File Name: IglooScore2.java
+Modification: Modify line 71.
+
+int s1, s2, s3;
+   //if (args==null || args.length != 3) 
+   if (args.length != 3){
+      System.err.println("Error: must supply three arguments!");
+      return;
+   }
+
